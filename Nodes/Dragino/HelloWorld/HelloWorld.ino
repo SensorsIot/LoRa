@@ -11,11 +11,11 @@
 #include <hal/hal.h>
 //#include <credentials.h>
 
-/* if you use a credentials.h file you have to include these lines with your own credentiials: 
+// You can include the following keys also in the credentials.h file: 
    #define NWKSKEY1 {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00}
    #define APPSKEY1 {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00}
    #define DEVADDR1  0x00000000
-*/
+
 #ifdef CREDENTIALS
 static const u1_t NWKSKEY[16] = NWKSKEY1;
 static const u1_t APPSKEY[16] = APPSKEY1;
@@ -89,7 +89,7 @@ void setup() {
     LMIC.dn2Dr = DR_SF9;
 
     // Set data rate and transmit power for uplink (note: txpow seems to be ignored by the library)
-    LMIC_setDrTxpow(DR_SF9,14);
+    LMIC_setDrTxpow(DR_SF12,14);
 
     // Start job
     do_send(&sendjob);
